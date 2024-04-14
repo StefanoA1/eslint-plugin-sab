@@ -1,0 +1,36 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2021
+    },
+    "extends": ["plugin:self/core", "plugin:self/prettier"],
+    "plugins": ["self"],
+    "rules": {
+        // disable rules introduced by this plugin, not found by self
+        "self/stefanoa1/no-async-callback": "off",
+        "self/stefanoa1/no-dangerous-logs": "off",
+        "self/stefanoa1/no-overwriting-spread": "off",
+        "self/stefanoa1/no-promise-all": "off",
+        "self/stefanoa1/jsx-no-logical-expression": "off",
+        "unicorn/filename-case": "warn"
+    },
+    "overrides": [
+        {
+            "files": ["test/**/*.js"],
+            "rules": {
+            },
+            "settings": {
+                "import/core-modules": ["ava"]
+            }
+        },
+        {
+            "files": ["scripts/**/*.js"],
+            "rules": {
+                "unicorn/no-process-exit": "off"
+            }
+        }
+    ]
+}
