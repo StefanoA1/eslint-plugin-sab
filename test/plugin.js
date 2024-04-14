@@ -8,7 +8,7 @@ test('index should contain combineConfigs function', t => {
 test('index should contain all configurations', t => {
   t.deepEqual(
     Object.keys(m.configs).sort(),
-    ['ava', 'core', 'es20XX', 'lodash-fp', 'prettier', 'react', 'css-modules'].sort()
+    ['ava', 'core', 'es20-xx', 'lodash-fp', 'prettier', 'react', 'css-modules'].sort()
   );
 });
 
