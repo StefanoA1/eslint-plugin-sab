@@ -1,7 +1,7 @@
 # Multi purpose ESLint plugin
 
 [![npm](https://img.shields.io/npm/v/@stefanoa1/eslint-plugin-sab.svg)](https://www.npmjs.com/package/@stefanoa1/eslint-plugin-sab)
-[![GitHub Actions](https://github.com/StefanoA1/eslint-plugin-stefanoa1/actions/workflows/main.yml/badge.svg)](https://github.com/StefanoA1/eslint-plugin-sab/actions)
+[![GitHub Actions](https://github.com/StefanoA1/eslint-plugin-sab/actions/workflows/main.yml/badge.svg)](https://github.com/StefanoA1/eslint-plugin-sab/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Personal ESLint rules and configs (testing config).
