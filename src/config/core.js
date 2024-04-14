@@ -55,11 +55,11 @@ module.exports = {
     'promise/prefer-await-to-then': 'off',
     'promise/valid-params': 'error',
 
-    '@stefanoa1/stefanoa1/no-async-callback': 'error',
-    '@stefanoa1/stefanoa1/no-dangerous-logs': 'error',
-    '@stefanoa1/stefanoa1/no-overwriting-spread': 'error',
-    '@stefanoa1/stefanoa1/jsx-no-logical-expression': 'error',
-    '@stefanoa1/stefanoa1/no-promise-all': 'off',
+    '@stefanoa1/sab/no-async-callback': 'error',
+    '@stefanoa1/sab/no-dangerous-logs': 'error',
+    '@stefanoa1/sab/no-overwriting-spread': 'error',
+    '@stefanoa1/sab/jsx-no-logical-expression': 'error',
+    '@stefanoa1/sab/no-promise-all': 'off',
 
     'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
     'import/default': 'error',

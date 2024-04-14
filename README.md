@@ -19,21 +19,20 @@ This package provides multiple configuration for different purposes, that you ca
 ```json
 {
   "extends": [
-    "plugin:@stefanoa1/stefanoa1/core",
-    "plugin:@stefanoa1/stefanoa1/ava",
+    "plugin:@stefanoa1/sab/core",
+    "plugin:@stefanoa1/sab/ava",
     "..."
   ],
   "plugins": [
-    "@stefanoa1/stefanoa1"
+    "@stefanoa1/sab"
   ]
 }
 ```
 
 Available rule sets are:
-- [ava](./config/ava.js): when using AVA
-- [core](./config/core.js): Shared ESLint rules
-- [es20XX](./config/es20XX.js): when using ES2015+ syntax
-- [flowtype](./config/flowtype.js): when using Flowtype
-- [lodash-fp](./config/lodash-fp.js): when using Lodash's FP flavor
-- [prettier](./config/prettier.js): Disables all stylistic rules but adds source code auto-formatting.
-- [react](./config/react.js): when using React
+- [ava](./src/config/ava.js): when using AVA
+- [core](./src/config/core.js): Shared ESLint rules
+- [es20-xx](./src/config/es20-xx.js): when using ES2015+ syntax
+- [lodash-fp](./src/config/lodash-fp.js): when using Lodash's FP flavor
+- [prettier](./src/config/prettier.js): Disables all stylistic rules but adds source code auto-formatting.
+- [react](./src/config/react.js): when using React

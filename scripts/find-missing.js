@@ -4,16 +4,7 @@
 const _ = require('lodash/fp');
 const getRuleFinder = require('eslint-find-rules');
 
-const allConfigs = [
-  'ava',
-  'core',
-  'css-modules',
-  'es20XX',
-  'lodash-fp',
-  'mocha',
-  'prettier',
-  'react'
-];
+const allConfigs = ['ava', 'core', 'css-modules', 'es20-xx', 'lodash-fp', 'prettier', 'react'];
 const ignorePlugins = ['json'];
 
 const then = f => p => p.then(f);
