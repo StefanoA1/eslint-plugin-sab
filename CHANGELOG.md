@@ -1,3 +1,3 @@
 # Changelog
 
-Here is list of rules modifications. (starting from v1)
+Pending to use standard-version

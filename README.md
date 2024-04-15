@@ -12,6 +12,8 @@ Personal ESLint rules and configs (testing config).
 npm install --save-dev eslint @stefanoa1/eslint-plugin-sab
 ```
 
+It supports node >= v18 (by default, this repo runs on v20)
+
 ## Usage
 
 This package provides multiple configuration for different purposes, that you can apply together in you project as needed. To use them, set the `extends` key of your `.eslintrc` file and add `@stefanoa1/stefanoa1` to your list of plugins.
