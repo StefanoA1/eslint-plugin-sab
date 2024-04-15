@@ -99,7 +99,7 @@ jobs:
             npm version patch -m "Bump version to %s"
           fi
           echo "https://$GITHUB_ACTOR:${{ secrets.ESLINT_PAT }}@github.com" > ~/.git-credentials
-          git push origin HEAD:master --tags
+          git push origin HEAD:main --tags
         env:
           GITHUB_ACTOR: ${{ github.actor }}
       - name: Publish to npm
