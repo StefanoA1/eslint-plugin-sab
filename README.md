@@ -36,3 +36,8 @@ Available rule sets are:
 - [lodash-fp](./src/config/lodash-fp.js): when using Lodash's FP flavor
 - [prettier](./src/config/prettier.js): Disables all stylistic rules but adds source code auto-formatting.
 - [react](./src/config/react.js): when using React
+
+## PR conventions
+
+When creating a PR, use a title like release: patch - fix bug #123, release: minor - add new feature #456, or release: major - breaking changes #789.
+The `release: ${VERSION}` part of the title is used by Github Actions to detect to which version to bump.
