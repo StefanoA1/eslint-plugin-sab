@@ -93,6 +93,7 @@ jobs:
           COMMIT_MSG=$(git log --format=%B -n 1)
           if [[ "$COMMIT_MSG" == *"release: skip"* ]]; then
             echo "Skipping release"
+            echo "::set-output name=SKIP::true"
             exit 0
           elif [[ "$COMMIT_MSG" == *"release: major"* ]]; then
             npm version major -m "Bump version to %s"
@@ -106,6 +107,7 @@ jobs:
         env:
           GITHUB_ACTOR: ${{ github.actor }}
       - name: Publish to npm
+        if: ${{ steps.bump_version.outputs.SKIP != 'true' }}
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_ESLINT }}" > ~/.npmrc
           npm publish
