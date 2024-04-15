@@ -87,7 +87,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      - name: Bump version and push tag
+      - name: Bump version, push tag and publish
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -95,7 +95,6 @@ jobs:
           COMMIT_MSG=$(git log --format=%B -n 1)
           if [[ "$COMMIT_MSG" == *"release: skip"* ]]; then
             echo "Skipping release"
-            echo "::set-output name=SKIP::true"
             exit 0
           elif [[ "$COMMIT_MSG" == *"release: major"* ]]; then
             npm version major -m "Bump version to %s"
@@ -106,10 +105,7 @@ jobs:
           fi
           echo "https://$GITHUB_ACTOR:${{ secrets.ESLINT_PAT }}@github.com" > ~/.git-credentials
           git push origin HEAD:main --tags
-        env:
-          GITHUB_ACTOR: ${{ github.actor }}
-      - name: Publish to npm
-        if: ${{ steps.bump_version.outputs.SKIP != 'true' }}
-        run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_ESLINT }}" > ~/.npmrc
           npm publish
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
