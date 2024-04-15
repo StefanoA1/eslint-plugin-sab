@@ -96,6 +96,8 @@ jobs:
             npm version patch -m "Bump version to %s"
           fi
           git push origin --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.ESLINT_PAT }}
       - name: Publish to npm
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_ESLINT }}" > ~/.npmrc
