@@ -91,7 +91,10 @@ jobs:
           git config --local user.name "GitHub Action"
           git config --global credential.helper store
           COMMIT_MSG=$(git log --format=%B -n 1)
-          if [[ "$COMMIT_MSG" == *"release: major"* ]]; then
+          if [[ "$COMMIT_MSG" == *"release: skip"* ]]; then
+            echo "Skipping release"
+            exit 0
+          elif [[ "$COMMIT_MSG" == *"release: major"* ]]; then
             npm version major -m "Bump version to %s"
           elif [[ "$COMMIT_MSG" == *"release: minor"* ]]; then
             npm version minor -m "Bump version to %s"
