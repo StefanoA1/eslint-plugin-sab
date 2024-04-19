@@ -86,7 +86,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm ci
+      - name: Clean install
+        run: npm ci
+      - name: Build
+        run: npm run build
       - name: Bump version, push tag and publish
         run: |
           git config --local user.email "action@github.com"

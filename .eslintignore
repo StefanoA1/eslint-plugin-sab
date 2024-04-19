@@ -1,0 +1,12 @@
+**/node_modules
+*.md
+tsconfig.tsbuildinfo
+**/*.zip
+**/*.tsv
+**/*.gz
+LICENSE
+tsconfig.json
+package.json
+package-lock.json
+**/*.sh
+dist

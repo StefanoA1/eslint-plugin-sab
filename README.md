@@ -16,13 +16,18 @@ It supports node >= v18 (by default, this repo runs on v20)
 
 ## Usage
 
-This package provides multiple configuration for different purposes, that you can apply together in you project as needed. To use them, set the `extends` key of your `.eslintrc` file and add `@stefanoa1/stefanoa1` to your list of plugins.
+This package provides multiple configurations for different purposes, that you can apply together in your project as needed.
+To use them, set each needed extension on the `extends` key of your `.eslintrc` file (if you only need ava, set ava only) and add `@stefanoa1/stefanoa1` to your list of plugins.
 
 ```json
 {
   "extends": [
     "plugin:@stefanoa1/sab/core",
     "plugin:@stefanoa1/sab/ava",
+    "plugin:@stefanoa1/sab/es20-xx",
+    "plugin:@stefanoa1/sab/lodash-fp",
+    "plugin:@stefanoa1/sab/prettier",
+    "plugin:@stefanoa1/sab/react",
     "..."
   ],
   "plugins": [
@@ -31,7 +36,19 @@ This package provides multiple configuration for different purposes, that you ca
 }
 ```
 
-Available rule sets are:
+To overwrite rules (check the rule sets on [the github repo](https://github.com/StefanoA1/eslint-plugin-sab/tree/main/src/rules)):
+```json
+{
+  "rules": [
+    "@stefanoa1/sab/no-overwriting-spread": "off",
+    "n/no-missing-import": "off",
+    "..."
+  ]
+}
+```
+
+Available rule sets are (code is minified on node_modules, checkout the repo or go
+to the project Github page to check the rules):
 - [ava](./src/config/ava.js): when using AVA
 - [core](./src/config/core.js): Shared ESLint rules
 - [es20-xx](./src/config/es20-xx.js): when using ES2015+ syntax

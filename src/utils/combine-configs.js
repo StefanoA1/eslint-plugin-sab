@@ -1,9 +1,12 @@
-const _ = require('lodash/fp');
+const isArray = require('lodash/fp/isArray');
+const mergeWith = require('lodash/fp/mergeWith');
+const reduce = require('lodash/fp/reduce');
+const union = require('lodash/fp/union');
 
 const mergeArrayCustomizer = (objValue, srcValue) => {
-  if (_.isArray(objValue)) return _.union(srcValue, objValue);
+  if (isArray(objValue)) return union(srcValue, objValue);
 };
 
-const combineConfigs = _.reduce(_.mergeWith(mergeArrayCustomizer), undefined);
+const combineConfigs = reduce(mergeWith(mergeArrayCustomizer), undefined);
 
 module.exports = combineConfigs;
