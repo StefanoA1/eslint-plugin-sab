@@ -71,7 +71,7 @@ jobs:
   publish:
     needs: find-missing
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.actor != 'actions-user'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -96,15 +96,15 @@ jobs:
           git config --local user.name "GitHub Action"
           git config --global credential.helper store
           COMMIT_MSG=$(git log --format=%B -n 1)
-          if [[ "$COMMIT_MSG" == *"release: skip"* ]]; then
+          if [[ "$COMMIT_MSG" == *"release: skip"* ]] || [[ "$COMMIT_MSG" != *"Github CI: Bump version to"* ]]; then
             echo "Skipping release"
             exit 0
           elif [[ "$COMMIT_MSG" == *"release: major"* ]]; then
-            npm version major -m "Bump version to %s"
+            npm version major -m "Github CI: Bump version to %s"
           elif [[ "$COMMIT_MSG" == *"release: minor"* ]]; then
-            npm version minor -m "Bump version to %s"
+            npm version minor -m "Github CI: Bump version to %s"
           else
-            npm version patch -m "Bump version to %s"
+            npm version patch -m "Github CI: Bump version to %s"
           fi
           echo "https://$GITHUB_ACTOR:${{ secrets.ESLINT_PAT }}@github.com" > ~/.git-credentials
           git push origin HEAD:main --tags
