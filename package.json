@@ -1,6 +1,6 @@
 {
   "name": "@stefanoa1/eslint-plugin-sab",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Common ESLint config for Personal projects",
   "homepage": "https://github.com/StefanoA1/eslint-plugin-sab#readme",
   "main": "dist/index.js",
