@@ -1,11 +1,9 @@
-const _ = require('lodash/fp');
+const findIndex = require('lodash/fp/findIndex');
+const findLastIndex = require('lodash/fp/findLastIndex');
 
 const makeReport = (context, propertiesFieldKey, regularProperty, spreadProperty) => node => {
-  const firstIndexOfProperty = _.findIndex({type: regularProperty}, node[propertiesFieldKey]);
-  const lastIndexOfSpreadProperty = _.findLastIndex(
-    {type: spreadProperty},
-    node[propertiesFieldKey]
-  );
+  const firstIndexOfProperty = findIndex({type: regularProperty}, node[propertiesFieldKey]);
+  const lastIndexOfSpreadProperty = findLastIndex({type: spreadProperty}, node[propertiesFieldKey]);
 
   if (
     firstIndexOfProperty !== -1 &&

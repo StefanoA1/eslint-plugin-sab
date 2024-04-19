@@ -1,7 +1,7 @@
 {
   "all": true,
   "cache": true,
-  "exclude": ["scripts"],
+  "exclude": ["scripts", "dist"],
   "check-coverage": true,
   "lines": 100,
   "statements": 100,

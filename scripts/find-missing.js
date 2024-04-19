@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /* eslint-disable no-console, fp/no-loops */
+const all = require('lodash/fp/all');
+const filter = require('lodash/fp/filter');
+const isEmpty = require('lodash/fp/isEmpty');
+const pipe = require('lodash/fp/pipe');
 
-const _ = require('lodash/fp');
 const getRuleFinder = require('eslint-find-rules');
 
 const allConfigs = ['ava', 'core', 'css-modules', 'es20-xx', 'lodash-fp', 'prettier', 'react'];
@@ -19,8 +22,8 @@ const getUnusedRules = async configName => {
   return ruleFinder.getUnusedRules();
 };
 
-const filterIgnoreRules = _.filter(rule =>
-  _.all(plugin => !rule.startsWith(`${plugin}/`), ignorePlugins)
+const filterIgnoreRules = filter(rule =>
+  all(plugin => !rule.startsWith(`${plugin}/`), ignorePlugins)
 );
 
 if (!module.parent) {
@@ -30,14 +33,14 @@ if (!module.parent) {
 
     const brokenConfigs = [];
     for (const config of configs) {
-      const unusedRules = await _.pipe(getUnusedRules, then(filterIgnoreRules))(config);
-      if (!_.isEmpty(unusedRules)) {
+      const unusedRules = await pipe(getUnusedRules, then(filterIgnoreRules))(config);
+      if (!isEmpty(unusedRules)) {
         console.log(`Some rules are unused in ${config}`);
         unusedRules.forEach(rule => console.log(`- ${rule}`));
         brokenConfigs.push(config);
       }
     }
-    if (!_.isEmpty(brokenConfigs)) {
+    if (!isEmpty(brokenConfigs)) {
       console.log(`Following configs are broken: ${brokenConfigs.join(', ')}`);
       process.exit(1);
     }
