@@ -12,7 +12,7 @@ Personal ESLint rules and configs (testing config).
 npm install --save-dev eslint @stefanoa1/eslint-plugin-sab
 ```
 
-It supports node >= v18 (by default, this repo runs on v20)
+It supports node >= v18 (by default, this repo runs on v20).
 
 ## Usage
 
