@@ -96,24 +96,26 @@ jobs:
           git config --local user.name "GitHub Action"
           git config --global credential.helper store
           COMMIT_MSG="${{ github.event.head_commit.message }}"
-          if [[ "$COMMIT_MSG" == *"release: skip"* ]] || [[ "$COMMIT_MSG" != *"Github CI: Bump version to"* ]]; then
-            echo "Skipping release"
-            exit 0
-          elif [[ "$COMMIT_MSG" == *"release: major"* ]]; then
+          if [[ "$COMMIT_MSG" == *"release: major"* ]]; then
             echo "Major bump"
             npm version major -m "Github CI: Bump version to %s"
+            echo "https://$GITHUB_ACTOR:${{ secrets.ESLINT_PAT }}@github.com" > ~/.git-credentials
+            git push origin HEAD:main --tags
           elif [[ "$COMMIT_MSG" == *"release: minor"* ]]; then
             echo "Minor bump"
             npm version minor -m "Github CI: Bump version to %s"
+            echo "https://$GITHUB_ACTOR:${{ secrets.ESLINT_PAT }}@github.com" > ~/.git-credentials
+            git push origin HEAD:main --tags
           elif [[ "$COMMIT_MSG" == *"release: patch"* ]]; then
             echo "Patch bump"
             npm version patch -m "Github CI: Bump version to %s"
-          else
-            echo "No release type detected, exit publish step"
+            echo "https://$GITHUB_ACTOR:${{ secrets.ESLINT_PAT }}@github.com" > ~/.git-credentials
+            git push origin HEAD:main --tags
+          fi
+          if [[ "$COMMIT_MSG" == *"release: skip"* ]] || [[ "$COMMIT_MSG" != *"Github CI: Bump version to"* ]]; then
+            echo "Skipping release"
             exit 0
           fi
-          echo "https://$GITHUB_ACTOR:${{ secrets.ESLINT_PAT }}@github.com" > ~/.git-credentials
-          git push origin HEAD:main --tags
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_ESLINT }}" > ~/.npmrc
           npm publish
         env:
