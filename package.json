@@ -55,7 +55,8 @@
     "eslint-plugin-self": "^1.2.1"
   },
   "scripts": {
-    "build": "esbuild index.js --minify-whitespace --minify-syntax --sourcemap --bundle --platform=node --target=node18 --outfile=dist/index.js",
+    "clean": "rm -rf dist/*",
+    "build": "npm run clean && esbuild index.js --minify-whitespace --minify-syntax --sourcemap --bundle --platform=node --target=node18 --outfile=dist/index.js",
     "test": "npm run lint && npm run test:unit && npm run find-missing",
     "test:unit": "c8 ava",
     "find-missing": "node scripts/find-missing",
