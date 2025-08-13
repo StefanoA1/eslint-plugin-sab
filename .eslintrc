@@ -13,8 +13,7 @@
         "self/sab/no-async-callback": "off",
         "self/sab/no-dangerous-logs": "off",
         "self/sab/no-overwriting-spread": "off",
-        "self/sab/no-promise-all": "off",
-        "self/sab/jsx-no-logical-expression": "off",
+        "self/sab/prefer-promise-allsettled": "off",
         "unicorn/filename-case": "warn"
     },
     "overrides": [

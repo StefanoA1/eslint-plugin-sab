@@ -58,8 +58,7 @@ module.exports = {
     '@stefanoa1/sab/no-async-callback': 'error',
     '@stefanoa1/sab/no-dangerous-logs': 'error',
     '@stefanoa1/sab/no-overwriting-spread': 'error',
-    '@stefanoa1/sab/jsx-no-logical-expression': 'error',
-    '@stefanoa1/sab/no-promise-all': 'off',
+    '@stefanoa1/sab/prefer-promise-allsettled': 'warn',
 
     'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
     'import/default': 'error',

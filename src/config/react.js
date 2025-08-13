@@ -7,6 +7,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'react/boolean-prop-naming': 'error',
+    'react/checked-requires-onchange-or-readonly': 'error',
     'react/button-has-type': 'error',
     'react/default-props-match-prop-types': 'error',
     'react/destructuring-assignment': 'error',
