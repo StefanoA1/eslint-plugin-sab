@@ -23,7 +23,7 @@
     "url": "https://github.com/StefanoA1/eslint-plugin-sab/issues"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
     "eslint-ast-utils": "^1.1.0",
@@ -56,11 +56,11 @@
   },
   "scripts": {
     "clean": "rm -rf dist/*",
-    "build": "npm run clean && esbuild index.js --minify-whitespace --minify-syntax --sourcemap --bundle --platform=node --target=node18 --outfile=dist/index.js",
+    "build": "npm run clean && esbuild index.js --minify-whitespace --minify-syntax --sourcemap --bundle --platform=node --target=node24 --outfile=dist/index.js",
     "test": "npm run lint && npm run test:unit && npm run find-missing",
     "test:unit": "c8 ava",
     "find-missing": "node scripts/find-missing",
-    "prettier-core": "prettier --print-width 100 --single-quote --no-bracket-spacing config/**/*.js rules/**/*.js test/**/*.js *.js",
+    "prettier-core": "prettier --write src/config/**/*.js src/rules/**/*.js test/**/*.js *.js",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   }

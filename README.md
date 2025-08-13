@@ -12,7 +12,7 @@ Personal ESLint rules and configs (testing config).
 npm install --save-dev eslint @stefanoa1/eslint-plugin-sab
 ```
 
-It supports node >= v18 (by default, this repo runs on v20).
+It supports node >= v20 (by default, this repo runs on v24).
 
 ## Usage
 
@@ -58,5 +58,10 @@ to the project Github page to check the rules):
 
 ## PR conventions
 
-When creating a PR, use a title like release: patch - fix bug #123, release: minor - add new feature #456, or release: major - breaking changes #789.
+When creating a PR, use a title like:
+```
+ release: patch - fix bug #123
+ release: minor - add new feature #456
+ release: major - breaking changes #789.
+```
 The `release: ${VERSION}` part of the title is used by Github Actions to detect to which version to bump.

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console, fp/no-loops */
+/* eslint-disable no-console */
 const all = require('lodash/fp/all');
 const filter = require('lodash/fp/filter');
 const isEmpty = require('lodash/fp/isEmpty');
