@@ -1,5 +1,5 @@
-const findIndex = require('lodash/fp/findIndex');
-const findLastIndex = require('lodash/fp/findLastIndex');
+const findIndex = require('../utils/find-index');
+const findLastIndex = require('../utils/find-last-index');
 
 const makeReport = (context, propertiesFieldKey, regularProperty, spreadProperty) => node => {
   const firstIndexOfProperty = findIndex({type: regularProperty}, node[propertiesFieldKey]);

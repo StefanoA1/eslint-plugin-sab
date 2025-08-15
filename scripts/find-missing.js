@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-const all = require('lodash/fp/all');
-const filter = require('lodash/fp/filter');
-const isEmpty = require('lodash/fp/isEmpty');
-const pipe = require('lodash/fp/pipe');
-
 const getRuleFinder = require('eslint-find-rules');
+
+const all = require('../src/utils/all');
+const filter = require('../src/utils/filter');
+const isEmpty = require('../src/utils/is-empty');
+const pipe = require('../src/utils/pipe');
 
 const allConfigs = ['ava', 'core', 'css-modules', 'es20-xx', 'lodash-fp', 'prettier', 'react'];
 const ignorePlugins = ['json'];
@@ -23,7 +23,7 @@ const getUnusedRules = async configName => {
 };
 
 const filterIgnoreRules = filter(rule =>
-  all(plugin => !rule.startsWith(`${plugin}/`), ignorePlugins)
+  all(plugin => !rule.startsWith(`${plugin}/`))(ignorePlugins)
 );
 
 if (!module.parent) {
